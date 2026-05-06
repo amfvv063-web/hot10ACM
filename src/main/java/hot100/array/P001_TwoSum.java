@@ -27,32 +27,33 @@ import java.util.Scanner;
  * </pre>
  */
 public class P001_TwoSum {
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
+        Scanner sc  = new Scanner(System.in);
         int n = sc.nextInt();
         int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < nums.length; i++) {
             nums[i] = sc.nextInt();
         }
         int target = sc.nextInt();
-        sc.close();
-
-        int[] ans = twoSum(nums, target);
+        int [] ans = towSum(nums, target);
         System.out.println(ans[0] + " " + ans[1]);
+    } 
+    
+
+    private static int[] towSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int [] ans = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            int x = nums[i];
+            if (map.containsKey(target - x)) {
+                ans[1] = i;
+                ans[0] = map.get(target-x);
+            }else{
+                map.put(x, i);
+            }
+        }
+        return ans;
     }
 
-    /** 与 LeetCode 核心函数版一致：返回两个下标。 */
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> indexByValue = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int need = target - nums[i];
-            if (indexByValue.containsKey(need)) {
-                return new int[] {indexByValue.get(need), i};
-            }
-            indexByValue.put(nums[i], i);
-        }
-        throw new IllegalArgumentException("no solution");
-    }
+    
 }
