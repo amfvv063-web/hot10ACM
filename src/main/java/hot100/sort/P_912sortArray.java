@@ -1,4 +1,4 @@
-package hot100.heap;
+package hot100.sort;
 
 import java.util.Random;
 
@@ -16,6 +16,7 @@ public static void main(String[] args) {
     System.out.println(sb);
 }
 
+//快排算法 分治+递归
 private static int[] sortQucik(int[] nums, int l, int r) {
     if (l>=r) {
         return nums;

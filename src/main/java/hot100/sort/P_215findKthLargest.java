@@ -1,4 +1,4 @@
-package hot100.heap;
+package hot100.sort;
 
 import java.util.Deque;
 import java.util.Random;
