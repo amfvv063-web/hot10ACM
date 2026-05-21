@@ -3,7 +3,7 @@ package hot100.design;
 import java.util.ArrayList;
 import java.util.List;
 
-public class P_53spiralOrder {
+public class P_54spiralOrder {
     private static final int[][] DIRS = {{0,1}, {1, 0},{0, -1}, {-1,0}};
 public static void main(String[] args) {
     int[][] matrix = {

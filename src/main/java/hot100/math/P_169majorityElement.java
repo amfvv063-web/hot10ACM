@@ -8,6 +8,7 @@ public class P_169majorityElement {
         System.out.println(ans);
     }
 
+    //求绝对众数
     private static int mE(int[] nums) {
         int hp = 1;
         int cur = nums[0];
