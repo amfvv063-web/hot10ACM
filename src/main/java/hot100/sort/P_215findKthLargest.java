@@ -1,6 +1,5 @@
 package hot100.sort;
 
-import java.util.Deque;
 import java.util.Random;
 
 public class P_215findKthLargest {

@@ -1,5 +1,7 @@
 package hot100.twopointers;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
 
 public class P42_trap {
@@ -12,7 +14,7 @@ public class P42_trap {
         for (int i = 0; i < nums.length; i++) {
             nums[i] = Integer.parseInt(parts[i]);
         }
-        int ans = trap(nums);
+        int ans = trap2(nums);
         System.out.println(ans);
     }
 
@@ -55,6 +57,24 @@ public class P42_trap {
                 ans += rMax - nums[r];
                 r--;
             }
+        }
+        return ans;
+    }
+
+    private static int trap2(int[] nums){
+        int n = nums.length;
+        Deque<Integer> st = new ArrayDeque<>();
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            while (!st.isEmpty() && nums[st.peek()] <= nums[i]) {
+                int bottom = nums[st.pop()];
+                if (st.isEmpty()) {
+                    break;
+                }
+                int l = st.peek();
+                ans += Math.min(nums[i], l) - bottom;
+            }
+            st.push(i);
         }
         return ans;
     }
