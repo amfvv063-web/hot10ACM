@@ -13,6 +13,9 @@ public static void main(String[] args) {
     
 }
 
+// 数学定理  (head, node) = a  (head,  point) = b   cycle = c
+//  slow -> b fast -> 2b  2b - b = kc -> b = kc
+//  b - a -> 入环口到相遇点距离 = kc - a  slow 走 a 步 = kc， 走完完整一圈到入环点
 private static ListNode findCycleNode(ListNode head) {
     ListNode fast = head;
     ListNode slow = head;
