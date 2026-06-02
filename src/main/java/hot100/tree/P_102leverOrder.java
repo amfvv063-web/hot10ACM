@@ -6,12 +6,13 @@ import java.util.Deque;
 import java.util.List;
 
 import common.TreeNode;
+import common.TreeUtils;
 
 public class P_102leverOrder {
 
     public static void main(String[] args) {
         Integer[] data = { 3, 9, 20, null, null, 15, 7 };
-        TreeNode root = buildTree(data);
+        TreeNode root = TreeUtils.buildTree(data);
         List<List<Integer>> ans = leverOder(root);
         StringBuffer sb = printer(ans);
         System.out.println(sb);
@@ -57,26 +58,5 @@ public class P_102leverOrder {
 
         }
         return ans;
-    }
-
-    private static TreeNode buildTree(Integer[] data) {
-        TreeNode root = new TreeNode(data[0]);
-        Deque<TreeNode> q = new ArrayDeque<>();
-        q.offer(root);
-        int i = 1;
-        while (i < data.length) {
-            TreeNode cur = q.poll();
-            if (i < data.length && data[i] != null) {
-                cur.left = new TreeNode(data[i]);
-                q.offer(cur.left);
-            }
-            i++;
-            if (i < data.length && data[i] != null) {
-                cur.right = new TreeNode(data[i]);
-                q.offer(cur.right);
-            }
-            i++;
-        }
-        return root;
     }
 }
