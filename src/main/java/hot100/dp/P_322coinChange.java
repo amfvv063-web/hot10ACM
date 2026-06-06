@@ -14,7 +14,7 @@ public static void main(String[] args) {
 private static int coinNum(int[] nums, int amount) {
     // dfs(i, j) = 选 dfs(i, j- x), dfs(i-1, j)  不选 dfs(i-1, j)
     int[][] f = new int[nums.length+1][amount+1];
-    Arrays.fill(f[0], Integer.MAX_VALUE);
+    Arrays.fill(f[0], Integer.MAX_VALUE/2);
     f[0][0] = 0;
 
     for (int i = 0; i < nums.length; i++) {
