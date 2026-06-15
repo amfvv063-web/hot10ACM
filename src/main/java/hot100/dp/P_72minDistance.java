@@ -19,6 +19,7 @@ private static int findD(String word1, String word2) {
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
+            // 满足条件 选
             if (s1[i] == s2[j]) {
                 f[i+1][j+1] = f[i][j];
             }else{
